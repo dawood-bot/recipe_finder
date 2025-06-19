@@ -121,6 +121,10 @@ function setupPagination(totalResults) {
     }
 }
 
+function addToFavorites(id, title, image) {
+    saveToFavorites(id, title, image);
+}
+
 // Initialize favorites on page load
 window.onload = function() {
     displayFavorites();
