@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fdfcf6, #e2e8ce);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      text-align: center;
+      animation: fadeInContainer 1.2s ease forwards;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 50px;
+      color: #556b2f;
+      margin-bottom: 10px;
+      animation: bounceIn 1s ease-in-out;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"], select {
+      padding: 12px;
+      border: 2px solid #c2b280;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #fff;
+    }
+
+    button {
+      background-color: #556b2f;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3e4f1d;
+      transform: scale(1.05);
+    }
+
+    .recipe {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 15px;
+      width: 280px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeUp 0.6s ease;
+    }
+
+    .recipe:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .recipe img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .recipe h2 {
+      font-size: 20px;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .recipe p {
+      font-size: 14px;
+      color: #444;
+    }
+
+    #recipe-list, #favorite-recipes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .pagination-button {
+      margin: 5px;
+      padding: 10px 16px;
+      background-color: #c2b280;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #1c1c1c;
+    }
+
+    .pagination-button:hover {
+      background-color: #a29468;
+    }
+
+    @keyframes fadeInContainer {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+   <img src="logo.png" alt="Recipe Finder Logo" class="logo">
+
+    <form id="search-form">
+      <input type="text" id="search-input" placeholder="Search by ingredient or dish..." required>
+      <select id="diet-filter">
+        <option value="">Filter by Diet</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+        <option value="gluten free">Gluten Free</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+    <div id="recipe-list"></div>
+    <div id="pagination"></div>
+    <h2>Favorite Recipes</h2>
+    <div id="favorite-recipes"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
